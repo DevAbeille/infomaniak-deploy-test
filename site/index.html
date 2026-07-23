@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Déploiement Infomaniak — banc d'essai</title>
+  <style>
+    :root {
+      --bg: #0f1115;
+      --card: #171a21;
+      --border: #262b36;
+      --text: #e8eaed;
+      --muted: #9aa2b1;
+      --accent: #4ade80;
+      --accent-soft: rgba(74, 222, 128, 0.12);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background:
+        radial-gradient(1200px 600px at 50% -10%, #1b2030 0%, var(--bg) 60%);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
+    .card {
+      width: 100%;
+      max-width: 520px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 36px;
+      text-align: center;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid rgba(74, 222, 128, 0.25);
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5); }
+      70% { box-shadow: 0 0 0 10px rgba(74, 222, 128, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    p.lead {
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .domain {
+      display: inline-block;
+      font-family: ui-monospace, "SFMono-Regular", "Cascadia Code", Menlo, Consolas, monospace;
+      font-size: 15px;
+      color: var(--text);
+      background: #0d0f14;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 16px;
+      margin-bottom: 28px;
+    }
+    .build {
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .build-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+    /* ==== MARQUEUR DE VERSION ====
+         Incrémenter à chaque test de déploiement.
+         C'est ce numéro que l'on vérifie en ligne pour prouver
+         que la chaîne GitHub -> Actions -> Infomaniak fonctionne. */
+    .build-number {
+      font-size: 34px;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      color: var(--accent);
+      letter-spacing: -0.01em;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <span class="status"><span class="dot"></span>Déploiement actif</span>
+    <h1>Le déploiement Infomaniak fonctionne</h1>
+    <p class="lead">Banc d'essai de la chaîne de déploiement continu&nbsp;: GitHub → Actions → Infomaniak (FTPS).</p>
+    <div class="domain">test.houseofcodesign.com</div>
+    <div class="build">
+      <span class="build-label">Déploiement n°</span>
+      <!-- MARQUEUR DE VERSION : incrémenter à la main à chaque test de déploiement -->
+      <span class="build-number">1</span>
+    </div>
+  </main>
+</body>
+</html>
